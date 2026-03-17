@@ -1,10 +1,10 @@
-function Skills({skills}){
+function Skills({ skills = [] }) {
 
-  return(
+  return (
 
-    <div className="bg-white shadow rounded-lg p-6">
+    <div className="bg-purple-100 border border-purple-300 shadow rounded-lg p-6">
 
-      <h2 className="font-semibold mb-4">
+      <h2 className="font-semibold text-purple-700 mb-4">
         Top Skills
       </h2>
 
@@ -13,7 +13,7 @@ function Skills({skills}){
         {skills.map((s,i)=>(
           <span
             key={i}
-            className="bg-gray-200 px-3 py-1 rounded"
+            className="bg-purple-500 text-white px-3 py-1 rounded-full text-sm"
           >
             {s}
           </span>
@@ -23,7 +23,8 @@ function Skills({skills}){
 
     </div>
 
-  )
+  );
+
 }
 
-export default Skills
+export default Skills;

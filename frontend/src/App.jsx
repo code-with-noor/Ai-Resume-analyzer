@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import ResumeUpload from "./components/ResumeUpload";
 import Dashboard from "./pages/Dashboard";
@@ -6,6 +6,16 @@ import Dashboard from "./pages/Dashboard";
 function App() {
 
   const [result, setResult] = useState(null);
+  const dashboardRef = useRef(null);
+
+  // 👇 auto scroll
+  useEffect(() => {
+    if (result && dashboardRef.current) {
+      dashboardRef.current.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  }, [result]);
 
   return (
 
@@ -13,20 +23,14 @@ function App() {
 
       <Navbar />
 
-      <div className="max-w-5xl mx-auto mt-10 px-4 text-center">
-
-        <h1 className="text-3xl font-bold mb-2">
-          AI Resume Analyzer
-        </h1>
-
-        <p className="text-gray-600 mb-8">
-          Upload your resume and get ATS score, skills analysis,
-          and improvement suggestions instantly.
-        </p>
+      <div className="max-w-5xl mx-auto mt-10 px-4">
 
         <ResumeUpload setResult={setResult} />
 
-        <Dashboard data={result} />
+        {/* 👇 ref add karo */}
+        <div ref={dashboardRef}>
+          <Dashboard data={result} />
+        </div>
 
       </div>
 

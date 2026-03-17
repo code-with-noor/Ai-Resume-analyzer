@@ -1,27 +1,21 @@
-function ScoreCard({score}){
+function ScoreCard({ score }) {
 
-  return(
+  return (
 
-    <div className="bg-white shadow rounded-lg p-6 text-center">
+    <div className="bg-blue-100 border border-blue-300 shadow rounded-lg p-6 text-center">
 
-      <h2 className="font-semibold mb-4">
+      <h2 className="font-semibold text-blue-700 mb-4">
         ATS Score
       </h2>
 
-      <p className="text-4xl font-bold text-indigo-600">
+      <p className="text-4xl font-bold text-blue-600">
         {score}%
       </p>
 
-      <div className="bg-gray-200 h-3 rounded mt-4">
-        <div
-          className="bg-indigo-600 h-3 rounded"
-          style={{width:`${score}%`}}
-        />
-      </div>
-
     </div>
 
-  )
+  );
+
 }
 
-export default ScoreCard
+export default ScoreCard;

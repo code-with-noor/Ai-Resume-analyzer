@@ -1,14 +1,14 @@
-function Suggestions({suggestions}){
+function Suggestions({ suggestions = [] }) {
 
-  return(
+  return (
 
-    <div className="bg-white shadow rounded-lg p-6">
+    <div className="bg-green-100 border border-green-300 shadow rounded-lg p-6">
 
-      <h2 className="font-semibold mb-4">
+      <h2 className="font-semibold text-green-700 mb-4">
         Suggestions
       </h2>
 
-      <ul className="list-disc ml-5 space-y-2">
+      <ul className="list-disc ml-5 space-y-2 text-green-800">
 
         {suggestions.map((s,i)=>(
           <li key={i}>{s}</li>
@@ -18,7 +18,8 @@ function Suggestions({suggestions}){
 
     </div>
 
-  )
+  );
+
 }
 
-export default Suggestions
+export default Suggestions;
